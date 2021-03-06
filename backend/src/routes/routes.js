@@ -13,25 +13,32 @@ router.use(helmet());
 
 /* GET home page. */
 router.get('/', authController.index);
-router.get('/home', authController.indexHome);
 router.post('/authenticate', authController.Auth);
 
 /*EMPLOYEE */
 router.get('/employee', employeeController.index);
+router.get('/employee/:id', employeeController.indexId);
 router.post('/employee', employeeController.create);
+//put
+//delete
 
 /*PATIENTS */
 router.get('/patients', patientsController.index);
 router.post('/patients', patientsController.create);
 router.put('/patients', patientsController.update);
+//delete
 
 /*SCHEDULLE */
 router.get('/schedulle', schedulleController.index);
 router.post('/schedulle', schedulleController.create);
+//put
+//delete
 
 /*Notes */
 router.get('/notes', notesController.index);
 router.post('/notes', notesController.create);
+//put
+//delete
 
 /*Filter */
 router.get('/filter', filterController.index);

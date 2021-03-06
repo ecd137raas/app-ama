@@ -2,13 +2,23 @@ var conn = require('../database/connection');
 
 module.exports = {
     async index(req, res){
-        conn.raw('SELECT id, name, role, therapist FROM employee;').then((result) => {
-            res.status(200).render('employee', {dados: result});
+        conn.raw('SELECT id, name, role, therapist, active FROM employee;').then((result) => {
+            res.status(200).send(result);
             res.end();
           })
           .catch((err) => {
-            res.status(400).send('Erro ao processar a requisição' + err);
+            res.status(400).send(err);
           });
+    },
+    async indexId(req, res){
+      var id = req.params.id;
+      conn.raw(`SELECT id, name, role, therapist, active FROM employee WHERE id=${id};`).then((result) => {
+          res.status(200).send(result);
+          res.end();
+        })
+        .catch((err) => {
+          res.status(400).send(err);
+        });
     },
     async create(req, res){
         var dadosForm = req.body;
@@ -23,12 +33,12 @@ module.exports = {
                     '${dadosForm.uf}',
                     '${dadosForm.therapist}',
                     '${dadosForm.active}')`)
-        .then((result) => {
-            res.status(200).redirect('/employee');
+        .then(() => {
+            res.status(200).send({sucesso: 'Registro incluído com sucesso'});
             res.end();
           })
           .catch((err) => {
-            res.status(400).send('Erro ao processar a requisição' + err);
+            res.status(400).send({erro: 'Erro ao processar a requisição'} + err);
           });
     }
 

@@ -5,10 +5,7 @@ module.exports = {
         res.status(200).render('login');
         res.end();
     },
-    async indexHome(req, res){
-        res.status(200).render('home');
-        res.end();
-    },
+  
     async Auth(req, res){
         var dadosForm = req.body;
         conn.raw(`SELECT name FROM employee WHERE email='${dadosForm.email}';`).then((result) => {
