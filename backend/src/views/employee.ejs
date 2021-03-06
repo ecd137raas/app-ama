@@ -1,0 +1,138 @@
+<html>
+    <head>
+      
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <title>AMA | Cadastro de profissionais</title>
+    </head>
+    <body>
+        <div class="container">
+        <!--Header Inicio-->
+        <header>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/home"> 
+              <img src="/images/logo_topo.png" width="30" height="30" class="d-inline-block align-top" alt="logo" loading="lazy">
+              AMA
+            </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Menu
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item active" href="/employee">Cadastro de profissionais</a>
+                        <a class="dropdown-item" href="/patients">Cadastro pacientes</a>
+                        <a class="dropdown-item" href="/listemployee">Agendamento</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/filter">Relatórios</a>
+                      </div>
+                    </li>
+                </ul>
+                <a class="nav-link" href="/"><span class="navbar-text">Sair</span></a>
+              </div>
+              
+          </nav>
+        </header>
+        <!--Header Fim-->
+            <!--Cadastro de Profissionais-->
+            <div class="card mt-3">
+              <div class="accordion" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Cadastro de profissionais
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <form method="post" action="/employee">
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="inputName">Nome Completo:</label>
+                              <input type="text" class="form-control" id="inputName" name="name" required>
+                              </div>
+                            <div class="form-group col-md-6">
+                              <label for="inputEmail4">Email:</label>
+                              <input type="email" class="form-control" id="inputEmail4"  name="email" required>
+                            </div>
+                          </div>
+                          <div class="form-row">
+                          <div class="form-group col-md-6">
+                              <label for="inputState">Especialidade / Cargo:</label>
+                              <select id="inputState" class="form-control" name="role" required>
+                                  <option></option>
+                                  <option>Diretor(a)</option>
+                                  <option>Coordenador(a)</option>
+                                  <option>Secretário(a)</option>
+                                  <option>T.O.</option>
+                                  <option>Fonoaudiologo(a)</option>
+                                  <option>Psicólogo(a)</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label for="inputPhone">Telefone contato:</label>
+                              <input type="text" class="form-control" id="inputPhone" placeholder="Preencher o número para whatsapp" name="phone" required>
+                            </div>
+                            <div class="form-group col-md-12">
+                              <label for="inputAddress">Endereço:</label>
+                              <input type="text" class="form-control" id="inputAddress" placeholder="Rua ou Avenida, número e bairro" name="address" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label for="inputAddress">Complemento:</label>
+                              <input type="text" class="form-control" id="inputAddress2" placeholder="Insira um ponto de referência, ou complemento" name="address2">
+                            </div>
+                            <div class="form-group col-md-4">
+                              <label for="inputCity">Cidade:</label>
+                              <input type="text" class="form-control" id="inputCity" name="city" required>
+                            </div>
+                            <div class="form-group col-md-2">
+                              <label for="inputUF">Estado:</label>
+                              <input type="text" class="form-control" id="inputUF" placeholder="Informe SP ou MG"  name="uf" required> 
+                            </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-3">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck" name="active">
+                                <label class="form-check-label" for="gridCheck">
+                                  Marque para ativar
+                                </label>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck" name="therapist">
+                                <label class="form-check-label" for="gridCheck">
+                                  Se o profissional for um terapeuta, marque essa opção.
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Salvar</button> 
+                          <button type="submit" class="btn btn-secondary ml-2" onclick="javascript:location.href='/listemployee'">Cancelar</button>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+         <!-- Optional JavaScript -->
+         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+</html>

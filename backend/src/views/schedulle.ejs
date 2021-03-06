@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+        <title>AMA | Cadastro de agendamento</title>
+    </head>
+    <body>
+        <div class="container">
+        <!--Header Inicio-->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/home"> 
+                    <img src="/images/logo_topo.png" width="30" height="30" class="d-inline-block align-top" alt="logo" loading="lazy">
+                    AMA
+                  </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                      <li class="nav-item">
+                          <a class="nav-link" href="/home">Home</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Menu
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/employee">Cadastro de profissionais</a>
+                            <a class="dropdown-item" href="/patients">Cadastro pacientes</a>
+                            <a class="dropdown-item active" href="/listemployee">Agendamento</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="/filter">Relatórios</a>
+                        </div>
+                      </li>
+                  </ul>
+                  <a class="nav-link" href="/"><span class="navbar-text">Sair</span></a>
+                </div>
+                
+            </nav>
+        </header>
+        <!--Header Fim-->
+        <div class="card  mt-3">
+            <div class="card-header">Cadastrar um agendamento</div>
+                <div class="card-body">
+                    <form id="form" method="POST" action="/schedulle">
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="lblProfissional"> Profissional:</label>
+                                <input type="text" class="form-control border-0" name="employee" id="textName" readonly></input>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="lblRole"> Cargo:</label>
+                                <input type="text" class="form-control border-0" name="role" id="textRole" readonly></input>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                              <div class="form-group col-md-4">
+                                <label for="lblPacientes">Pacientes:</label>
+                                <select id="selPacientes" class="form-control" name="patients" required>
+                                    <% var dadospat;
+                                        for(var i in dadospat){%>
+                                            <option value="<%=dadospat[i].id%>"><%=dadospat[i].name%></option>
+                                    <%}%>
+                                </select>
+                              </div>
+                              <div class="form-group col-md-3">
+                                <label id="lblDate">Data:</label>
+                                <input type="date" class="form-control" id="inputdate" name="day_schedulle" required> 
+                              </div>
+                              <div class="form-group col-md-2">
+                                <label for="lblHora">Horário:</label>
+                                <input type="time" class="form-control" id="inputHora" name="hr_schedulle" required> 
+                              </div>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Salvar</button>
+                          <button type="submit" class="btn btn-secondary ml-2" onclick="javascript:location.href='/listemployee'">Cancelar</button>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        <!-- Optional JavaScript -->
+        <script>
+            var name = localStorage.getItem('name');
+            var role = localStorage.getItem('role');
+            document.getElementById('textName').value = name;
+            document.getElementById('textRole').value = role;
+        </script>
+         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "app-internal-ama",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./src/bin/app-ama"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "dateformat": "^3.0.3",
+    "ejs": "^2.6.2",
+    "express": "^4.16.4",
+    "express-session": "^1.17.1",
+    "helmet": "^3.23.3",
+    "http-errors": "^1.6.3",
+    "knex": "^0.20.15",
+    "local-storage": "^2.0.0",
+    "morgan": "~1.9.1",
+    "node-localstorage": "^2.1.6",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
