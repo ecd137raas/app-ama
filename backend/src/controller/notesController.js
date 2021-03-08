@@ -13,11 +13,11 @@ module.exports = {
         dadosForm.date = new Date();
         if (typeof dadosForm.id){
             conn.raw(`UPDATE schedulle SET presence='${dadosForm.presence}', note='${dadosForm.note}', date='${dadosForm.date}' WHERE id= ${dadosForm.id}`).then((result) => {
-            res.status(200).render('notes');
-            res.end();
+                res.status(200).render('notes');
+                res.end();
             })
             .catch((err) => {
-            res.status(400).send('Erro ao processar a página'+err);
+                res.status(400).send('Erro ao processar a página'+err);
             })
         } else {
             res.status(400).send('Falha nos parâmetros enviados');

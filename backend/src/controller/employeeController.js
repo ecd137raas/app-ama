@@ -40,6 +40,40 @@ module.exports = {
           .catch((err) => {
             res.status(400).send({erro: 'Erro ao processar a requisição'} + err);
           });
+    },
+    async update(req, res){
+      var id = req.params.id;
+      var json = req.body;
+      
+      conn.raw(`UPDATE employee SET 
+                  name='${json.name}', 
+                  email='${json.email}', 
+                  role='${json.role}',
+                  phone='${json.phone}',
+                  address='${json.address}',
+                  address2='${json.address2}',
+                  city='${json.city}', 
+                  uf='${json.uf}',
+                  therapist='${json.therapist}',
+                  active='${json.active}' WHERE id=${id}`)
+      .then((result) => {
+          res.status(200).send({sucesso: 'Registro alterado com sucesso'});
+          res.end();
+        })
+        .catch((err) => {
+          res.status(400).send({erro: 'Erro ao processar a requisição'} + err);
+        });
+    },
+    async delete(req, res){
+      var id = req.params.id;
+      conn.raw(`DELETE FROM employee WHERE id=${id}`)
+      .then(() => {
+          res.status(200).send({sucesso: 'Registro excluído com sucesso'});
+          res.end();
+        })
+        .catch((err) => {
+          res.status(400).send({erro: 'Erro ao processar a requisição'} + err);
+        });
     }
 
 }

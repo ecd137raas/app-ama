@@ -10,17 +10,15 @@ const filterController = require('../controller/filterController');
 
 var router = express.Router()
 router.use(helmet());
-
 /* GET home page. */
-router.get('/', authController.index);
-router.post('/authenticate', authController.Auth);
+router.get('/authenticate', authController.index);
 
 /*EMPLOYEE */
 router.get('/employee', employeeController.index);
 router.get('/employee/:id', employeeController.indexId);
 router.post('/employee', employeeController.create);
-//put
-//delete
+router.put('/employee/:id', employeeController.update);
+router.delete('/employee/:id', employeeController.delete);
 
 /*PATIENTS */
 router.get('/patients', patientsController.index);
